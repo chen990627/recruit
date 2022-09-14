@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tabBar_home"
+        android:icon="@drawable/tabbar_item_home"
+        android:title="@string/tabBar_home" />
+
+    <item
+        android:id="@+id/tabBar_company"
+        android:icon="@drawable/tabbar_item_company"
+        android:title="@string/tabBar_company" />
+
+    <item
+        android:id="@+id/tabBar_message"
+        android:icon="@drawable/tabbar_item_message"
+        android:title="@string/tabBar_message" />
+
+    <item
+        android:id="@+id/tabBar_mine"
+        android:icon="@drawable/tabbar_item_mine"
+        android:title="@string/tabBar_mine" />
+</menu>

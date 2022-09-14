@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk rootProject.ext.android["compileSdk"]
+
+    defaultConfig {
+        applicationId rootProject.ext.android["applicationId"]
+        minSdk rootProject.ext.android["minSdk"]
+        targetSdk rootProject.ext.android["targetSdk"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+
+    buildTypes {
+        release {
+            // 是否开启混淆
+            minifyEnabled false
+            // 移除无用的resource文件
+            // shrinkResources true
+            // 开启ZipAlign优化
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 开启dataBinding
+    buildFeatures {
+        dataBinding = true
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "recruit.apk"
+            }
+    }
+
+    packagingOptions {
+        pickFirst 'lib/x86/libsqlite.so'
+        pickFirst 'lib/x86_64/libsqlite.so'
+        pickFirst 'lib/armeabi-v7a/libsqlite.so'
+        pickFirst 'lib/arm64-v8a/libsqlite.so'
+        pickFirst 'lib/x86/libhyphenate.so'
+        pickFirst 'lib/x86_64/libhyphenate.so'
+        pickFirst 'lib/armeabi-v7a/libhyphenate.so'
+        pickFirst 'lib/arm64-v8a/libhyphenate.so'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+
+    implementation rootProject.ext.dependencies["appcompat"]
+    implementation rootProject.ext.dependencies["material"]
+    implementation rootProject.ext.dependencies["constraintlayout"]
+    implementation rootProject.ext.dependencies["glide"]
+    implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["okhttp"]
+}

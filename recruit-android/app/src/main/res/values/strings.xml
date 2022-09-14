@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">招聘求职</string>
+
+    <string name="tabBar_home">岗位</string>
+    <string name="tabBar_company">公司</string>
+    <string name="tabBar_message">消息</string>
+    <string name="tabBar_mine">我的</string>
+
+    <!-- 首页 -->
+    <string name="home_food">美食</string>
+    <string name="home_chafing_dish">火锅</string>
+    <string name="home_fresh">生鲜</string>
+    <string name="home_garden_stuff">果蔬</string>
+    <string name="home_went">跑腿</string>
+    <string name="home_tea">下午茶</string>
+    <string name="home_pizza">披萨</string>
+
+    <!-- 登录页 -->
+    <string name="login_login">登录</string>
+    <string name="login_register">立即注册</string>
+    <string name="login_mobile">手机号</string>
+    <string name="login_password">密码</string>
+    <string name="login_forget">忘记密码</string>
+    <string name="login_wechat">微信登录</string>
+    <string name="login_qq">QQ登录</string>
+
+    <!-- 我的 -->
+    <string name="mine_nickname">白花恋诗</string>
+    <string name="mine_collection">商品收藏</string>
+    <string name="mine_follow">店铺关注</string>
+    <string name="mine_cart">我的购物车</string>
+    <string name="mine_balance">我的余额</string>
+    <string name="mine_address">收货地址</string>
+    <string name="mine_foot">我的足迹</string>
+    <string name="mine_help">帮助中心</string>
+    <string name="mine_contact">联系客服</string>
+
+</resources>

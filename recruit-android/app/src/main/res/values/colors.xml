@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#3B73F6</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#d7000f</color>
+    <color name="blue">#00A3CF</color>
+    <color name="blueDark">#0064cd</color>
+    <color name="orange">#F47837</color>
+    <color name="green">#51B148</color>
+    <color name="yellow">#FFC40D</color>
+    <color name="pink">#C3325F</color>
+    <color name="purple">#7A43B6</color>
+
+    <color name="aoColor1">#FF5F9F</color>
+    <color name="aoColor2">#9B63EE</color>
+    <color name="aoColor3">#3BE4A6</color>
+    <color name="aoColor4">#2D88F5</color>
+    <color name="aoColor5">#ADE554</color>
+    <color name="aoColor6">#FF8400</color>
+    <color name="aoColor7">#60B294</color>
+    <color name="aoColor8">#CB1BFF</color>
+
+    <color name="textColor">#4C5765</color>
+    <color name="redText">#FF9999</color>
+    <color name="blackText3">#333333</color>
+    <color name="blackText2">#222222</color>
+
+    <color name="bgGray">#F2F2F2</color>
+    <color name="mainGray">#F2F6F7</color>
+    <color name="gray_5">#555555</color>
+    <color name="gray_6">#666666</color>
+    <color name="gray_7">#777777</color>
+    <color name="gray_8">#888888</color>
+
+    <color name="tabBar_unselected">#BBBBBB</color>
+
+    <color name="black_tag">#999999</color>
+    <color name="gray_tag">#909399</color>
+
+    <color name="input_label">#646566</color>
+    <color name="input_hint">#C8C9CC</color>
+    <color name="input_line">#EBEBEB</color>
+    <color name="bottom_line">#EBEDF0</color>
+    <color name="line">#E5E5E5</color>
+
+</resources>
