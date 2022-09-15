@@ -48,6 +48,7 @@
             <EditText
                 android:id="@+id/input_mobile"
                 style="@style/input"
+                android:layout_width="match_parent"
                 android:autofillHints=""
                 android:hint="@string/mobile_input_hint"
                 android:inputType="number" />
@@ -69,6 +70,7 @@
                 android:hint="@string/smsCode_input_hint"
                 android:inputType="number"
                 android:paddingStart="5dp"
+                android:paddingEnd="30dp"
                 tools:ignore="RtlSymmetry" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -82,7 +84,6 @@
                 android:text="@string/fetch_code"
                 android:textColor="@color/primary"
                 android:textSize="14sp"
-                android:textStyle="bold"
                 tools:ignore="RelativeOverlap,RtlSymmetry" />
         </RelativeLayout>
 
@@ -103,7 +104,8 @@
         android:background="@drawable/shape_login_btn"
         android:text="@string/login_or_register"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -112,11 +114,13 @@
         android:layout_marginTop="90dp">
 
         <TextView
+            android:id="@+id/other_login_wechat"
             style="@style/other_login"
             android:text="@string/login_wechat"
             app:drawableTopCompat="@mipmap/icon_wechat" />
 
         <TextView
+            android:id="@+id/other_login_qq"
             style="@style/other_login"
             android:layout_alignParentEnd="true"
             android:text="@string/login_qq"

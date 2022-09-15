@@ -2,9 +2,11 @@ package org.kuro.recruit.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,5 +58,15 @@ public abstract class BaseFragment extends Fragment {
         Intent in = new Intent(requireActivity(), cls);
         in.setFlags(flags);
         startActivity(in);
+    }
+
+    public void showToast(String msg) {
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showToastSync(String msg) {
+        Looper.prepare();
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+        Looper.loop();
     }
 }
