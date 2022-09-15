@@ -6,33 +6,97 @@
     <string name="tabBar_message">消息</string>
     <string name="tabBar_mine">我的</string>
 
-    <!-- 首页 -->
-    <string name="home_food">美食</string>
-    <string name="home_chafing_dish">火锅</string>
-    <string name="home_fresh">生鲜</string>
-    <string name="home_garden_stuff">果蔬</string>
-    <string name="home_went">跑腿</string>
-    <string name="home_tea">下午茶</string>
-    <string name="home_pizza">披萨</string>
+    <string name="empty_data">暂无数据</string>
 
-    <!-- 登录页 -->
-    <string name="login_login">登录</string>
-    <string name="login_register">立即注册</string>
-    <string name="login_mobile">手机号</string>
-    <string name="login_password">密码</string>
-    <string name="login_forget">忘记密码</string>
+    <!--登录页-->
+    <string name="mobile_login">手机号登录</string>
+    <string name="login_tip">未注册过的手机号将会自动创建账号</string>
+    <string name="mobile_input_label">+86</string>
+    <string name="mobile_input_hint">请输入手机号</string>
+    <string name="smsCode_input_hint">请输入验证码</string>
+    <string name="fetch_code">获取验证码</string>
+    <string name="privacy_agreement">已阅读并同意《用户协议》</string>
+    <string name="login_or_register">登录 / 注册</string>
     <string name="login_wechat">微信登录</string>
     <string name="login_qq">QQ登录</string>
 
-    <!-- 我的 -->
-    <string name="mine_nickname">白花恋诗</string>
-    <string name="mine_collection">商品收藏</string>
-    <string name="mine_follow">店铺关注</string>
-    <string name="mine_cart">我的购物车</string>
-    <string name="mine_balance">我的余额</string>
-    <string name="mine_address">收货地址</string>
-    <string name="mine_foot">我的足迹</string>
-    <string name="mine_help">帮助中心</string>
-    <string name="mine_contact">联系客服</string>
+    <!--首页-->
+    <string name="location">南宁</string>
+    <string name="search_hint">搜索职位</string>
+    <string name="scan_qr">扫码</string>
+    <string name="home_recruit">招聘</string>
+    <string name="home_reward">悬赏</string>
+    <string name="home_train">培训</string>
+    <string name="home_discount">折扣</string>
+    <string name="home_new">最新</string>
+    <string name="home_nearby">附近</string>
+    <string name="home_filter">筛选</string>
+    <string name="choose_city">选择城市</string>
+    <string name="r_type">招聘类型</string>
+    <string name="r_edu">学历要求</string>
+    <string name="r_year">经验要求</string>
+    <string name="r_salary">薪资待遇</string>
+    <string name="filter_clear">清除</string>
+    <string name="filter_check">确认</string>
+    <string name="unlimited">不限</string>
+    <string name="qz">全职</string>
+    <string name="jz">兼职</string>
+    <string name="edu_1">初中及以下</string>
+    <string name="edu_2">中专/中技</string>
+    <string name="edu_3">高中</string>
+    <string name="edu_4">大专</string>
+    <string name="edu_5">本科</string>
+    <string name="edu_6">硕士</string>
+    <string name="edu_7">博士</string>
+    <string name="year_1">在校生</string>
+    <string name="year_2">应届生</string>
+    <string name="year_3">1年以内</string>
+    <string name="year_4">1-3年</string>
+    <string name="year_5">3-5年</string>
+    <string name="year_6">5-10年</string>
+    <string name="year_7">10年以上</string>
+    <string name="salary_1">3K以下</string>
+    <string name="salary_2">3-5K</string>
+    <string name="salary_3">5-7K</string>
+    <string name="salary_4">7-9K</string>
+    <string name="salary_5">9-12K</string>
+    <string name="salary_6">12K以上</string>
+    <string name="recruit_detail">职位详情</string>
+    <string name="communicate">立 即 沟 通</string>
+
+    <!--消息页-->
+    <string name="message">消息</string>
+    <string name="system_notify">系统通知</string>
+    <string name="user1">陈墨</string>
+    <string name="msg1">兄弟，你女朋友和我女朋友是同一个人</string>
+    <string name="time1">16:56</string>
+
+    <!-- 个人中心页 -->
+    <string name="go_login">前往登录</string>
+    <string name="mine_title">我的</string>
+    <string name="mine_follow">我的关注</string>
+    <string name="mine_withdraw_deposit">提现记录</string>
+    <string name="mine_curriculum_vitae">我的简历</string>
+    <string name="mine_job_expect">求职期望</string>
+    <string name="mine_spread_count">收支明细</string>
+    <string name="mine_curriculum_file">简历附件</string>
+    <string name="mine_invite">邀请好友</string>
+    <string name="mine_feedback">意见和反馈</string>
+    <string name="mine_service">客服咨询</string>
+    <string name="mine_user_agreement">用户协议</string>
+    <string name="mine_secrets">隐私政策</string>
+    <string name="mine_logout">注销登录</string>
+    <string name="mine_money">8.00</string>
+    <string name="mine_money_text">账户余额</string>
+    <string name="mine_score">90</string>
+    <string name="mine_score_text">我的积分</string>
+    <string name="liked">\n余额</string>
+    <string name="fans">\n冻结</string>
+    <string name="follow">\n积分</string>
+    <string name="score">\n邀请</string>
+    <string name="fragment_my_feed">悬赏</string>
+    <string name="fragment_my_comment">简历</string>
+    <string name="fragment_my_favorite">收藏</string>
+    <string name="fragment_my_history">历史记录</string>
 
 </resources>

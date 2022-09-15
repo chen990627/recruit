@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 下边线 -->
+    <style name="default_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/bottom_line</item>
+    </style>
+
+    <!-- ActionBar标题 -->
+    <style name="action_bar_title">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/blackText3</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- 单选框 -->
+    <style name="radio_button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableStart">@drawable/radio_button_selector</item>
+        <item name="android:drawablePadding">7dp</item>
+        <item name="android:textColor">@color/blackText3</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- RoundButton -->
+    <style name="round_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/blackText3</item>
+    </style>
+
+    <!--ShapeableImageView 圆形图片 -->
+    <style name="circleStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

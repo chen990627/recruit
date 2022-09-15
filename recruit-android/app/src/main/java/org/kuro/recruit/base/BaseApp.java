@@ -4,6 +4,8 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 
+import org.kuro.recruit.utils.SpUtil;
+
 public class BaseApp extends Application {
 
     @Override
@@ -19,7 +21,7 @@ public class BaseApp extends Application {
 
         // 只在主进程中初始化
         if (getApplicationInfo().packageName.equals(getCurProcessName(getApplicationContext()))) {
-
+            SpUtil.getInstance().initSp(this);
         }
     }
 

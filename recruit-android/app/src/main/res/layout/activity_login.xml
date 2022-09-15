@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="50dp"
+    android:paddingTop="120dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mobile_login"
+        android:textColor="@color/blackText3"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="35dp"
+        android:text="@string/login_tip"
+        android:textColor="#969799"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="@string/mobile_input_label"
+                android:textColor="@color/input_label"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/input_mobile"
+                style="@style/input"
+                android:autofillHints=""
+                android:hint="@string/mobile_input_hint"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <View style="@style/default_line" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp">
+
+            <EditText
+                android:id="@+id/sms_code"
+                style="@style/input"
+                android:layout_alignParentStart="true"
+                android:autofillHints=""
+                android:hint="@string/smsCode_input_hint"
+                android:inputType="number"
+                android:paddingStart="5dp"
+                tools:ignore="RtlSymmetry" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fetch_code"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/border_btn"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:text="@string/fetch_code"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="RelativeOverlap,RtlSymmetry" />
+        </RelativeLayout>
+
+        <View style="@style/default_line" />
+    </LinearLayout>
+
+    <RadioButton
+        android:id="@+id/login_read"
+        style="@style/radio_button"
+        android:layout_width="wrap_content"
+        android:text="@string/privacy_agreement" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_login_btn"
+        android:text="@string/login_or_register"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="90dp">
+
+        <TextView
+            style="@style/other_login"
+            android:text="@string/login_wechat"
+            app:drawableTopCompat="@mipmap/icon_wechat" />
+
+        <TextView
+            style="@style/other_login"
+            android:layout_alignParentEnd="true"
+            android:text="@string/login_qq"
+            app:drawableTopCompat="@mipmap/icon_qq"
+            tools:ignore="RelativeOverlap" />
+    </RelativeLayout>
+</LinearLayout>
