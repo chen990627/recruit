@@ -72,31 +72,14 @@
     <string name="time1">16:56</string>
 
     <!-- 个人中心页 -->
-    <string name="go_login">前往登录</string>
-    <string name="mine_title">我的</string>
-    <string name="mine_follow">我的关注</string>
-    <string name="mine_withdraw_deposit">提现记录</string>
-    <string name="mine_curriculum_vitae">我的简历</string>
-    <string name="mine_job_expect">求职期望</string>
-    <string name="mine_spread_count">收支明细</string>
+    <string name="mine_introduce">用一句话介绍自己…</string>
     <string name="mine_curriculum_file">简历附件</string>
-    <string name="mine_invite">邀请好友</string>
-    <string name="mine_feedback">意见和反馈</string>
-    <string name="mine_service">客服咨询</string>
-    <string name="mine_user_agreement">用户协议</string>
-    <string name="mine_secrets">隐私政策</string>
-    <string name="mine_logout">注销登录</string>
-    <string name="mine_money">8.00</string>
-    <string name="mine_money_text">账户余额</string>
-    <string name="mine_score">90</string>
-    <string name="mine_score_text">我的积分</string>
-    <string name="liked">\n余额</string>
-    <string name="fans">\n冻结</string>
-    <string name="follow">\n积分</string>
-    <string name="score">\n邀请</string>
-    <string name="fragment_my_feed">悬赏</string>
-    <string name="fragment_my_comment">简历</string>
-    <string name="fragment_my_favorite">收藏</string>
-    <string name="fragment_my_history">历史记录</string>
+    <string name="mine_collect">我的收藏</string>
+    <string name="mine_mailing">已投简历</string>
+    <string name="mine_job_expect">管理求职意向</string>
+    <string name="mine_home">个人主页</string>
+    <string name="mine_follow">关注公司</string>
+    <string name="mine_answer">常见问答</string>
+    <string name="mine_help">帮助与反馈</string>
 
 </resources>

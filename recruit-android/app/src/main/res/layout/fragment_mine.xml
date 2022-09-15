@@ -1,10 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".fragment.MineFragment">
 
-</LinearLayout>
+    <!-- 背景图 -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="193dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/mine_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- 背景图 end -->
+
+    <!-- 设置图标 -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/icon_setting"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- 设置图标 end -->
+
+    <!-- 用户信息 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="63dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            style="@style/circleStyle"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@mipmap/icon_qq" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mine_answer"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:drawablePadding="8dp"
+                android:text="@string/mine_introduce"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:drawableStartCompat="@drawable/icon_edit" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 用户信息 end -->
+
+    <!-- 三个菜单 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mine_menu"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="160dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_menu"
+                android:drawableTop="@mipmap/curriculum_vitae"
+                android:text="@string/mine_curriculum_file"
+                tools:text="@string/mine_curriculum_file" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_menu"
+                android:drawableTop="@mipmap/mine_mailing"
+                android:text="@string/mine_mailing"
+                tools:text="@string/mine_mailing" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_menu"
+                android:drawableTop="@mipmap/mine_collect"
+                android:text="@string/mine_collect"
+                tools:text="@string/mine_collect" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <!-- 三个菜单 end -->
+
+    <!-- 底部列表菜单 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mine_menu">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:drawableStart="@drawable/icon_plus"
+                android:text="@string/mine_job_expect" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/icon_arrow_right"
+                android:text="@string/mine_job_expect"
+                android:textColor="@color/black_tag"
+                android:textSize="12sp"
+                tools:ignore="RelativeOverlap" />
+        </RelativeLayout>
+
+        <View style="@style/default_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:drawableStart="@drawable/icon_home"
+                android:text="@string/mine_home" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:layout_width="match_parent"
+                android:drawableEnd="@drawable/icon_arrow_right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:drawableStart="@drawable/icon_follow"
+                android:text="@string/mine_follow" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:layout_width="match_parent"
+                android:drawableEnd="@drawable/icon_arrow_right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:drawableStart="@drawable/icon_answer"
+                android:text="@string/mine_answer" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:layout_width="match_parent"
+                android:drawableEnd="@drawable/icon_arrow_right" />
+        </LinearLayout>
+
+        <View style="@style/default_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:drawableStart="@drawable/icon_help"
+                android:text="@string/mine_help" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/mine_row_item"
+                android:layout_width="match_parent"
+                android:drawableEnd="@drawable/icon_arrow_right" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 底部列表菜单 end -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

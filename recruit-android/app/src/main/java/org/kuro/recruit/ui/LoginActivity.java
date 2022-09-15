@@ -89,16 +89,16 @@ public class LoginActivity extends BaseUIActivity {
             }
 
             // 校验手机号
-            String mobileForm = inputMobile.getText().toString().trim();
-            if (valid(mobileForm, 1)) {
-                return;
-            }
+//            String mobileForm = inputMobile.getText().toString().trim();
+//            if (valid(mobileForm, 1)) {
+//                return;
+//            }
 
             // 校验短信验证码
-            String smsForm = smsCode.getText().toString().trim();
-            if (valid(smsForm, 2)) {
-                return;
-            }
+//            String smsForm = smsCode.getText().toString().trim();
+//            if (valid(smsForm, 2)) {
+//                return;
+//            }
 
             // todo 发送api请求
 
