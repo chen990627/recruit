@@ -28,7 +28,7 @@
     <color name="blackText2">#222222</color>
 
     <color name="bgGray">#F2F2F2</color>
-    <color name="mainGray">#F2F6F7</color>
+    <color name="main_gray">#F4F4F4</color>
     <color name="gray_5">#555555</color>
     <color name="gray_6">#666666</color>
     <color name="gray_7">#777777</color>
