@@ -3,8 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".fragment.CompanyFragment">
+
+    <!-- 顶部 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/tabBar_company"
+            android:scaleType="fitXY"
+            android:src="@mipmap/common_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/company"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <!-- 搜索框 -->
+            <EditText
+                style="@style/search_input"
+                android:layout_gravity="center"
+                android:autofillHints="username"
+                tools:ignore="LabelFor" />
+            <!-- 搜索框 end -->
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- 顶部 end -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/company_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="5dp" />
 
 </LinearLayout>

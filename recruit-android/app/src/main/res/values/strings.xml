@@ -64,6 +64,10 @@
     <string name="recruit_detail">职位详情</string>
     <string name="communicate">立 即 沟 通</string>
 
+    <!-- 公司 -->
+    <string name="search">搜索&#8230;&#8230;&#8230;</string>
+    <string name="company">公司</string>
+
     <!--消息页-->
     <string name="message">消息</string>
     <string name="system_notify">系统通知</string>
