@@ -26,29 +26,29 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/company_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="千库科技有限公司"
                 android:textColor="@color/blackText3"
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/company_intro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="8dp"
-                android:text="北京 | 移动互联网 | 500~1000人"
                 android:textColor="@color/blackText3"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
 
             <TextView
+                android:id="@+id/company_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_tags"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="3dp"
-                android:text="上市公司"
                 android:textColor="@color/blackText3"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
@@ -58,9 +58,9 @@
                 android:layout_marginVertical="15dp" />
 
             <TextView
+                android:id="@+id/company_jobs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="热招：高级交互设计师 等66个岗位"
                 android:textColor="@color/blackText3"
                 android:textSize="12sp"
                 app:drawableEndCompat="@drawable/icon_arrow_right" />

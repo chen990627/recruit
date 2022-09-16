@@ -57,9 +57,11 @@ public class LoginActivity extends BaseUIActivity {
         wechatLogin = findViewById(R.id.other_login_wechat);
 
         // 给用户协议设置不同的颜色
-        SpannableString agreement = new SpannableString("已阅读并同意《用户协议》");
-        agreement.setSpan(new ForegroundColorSpan(Color.parseColor("#333333")), 0, 6, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        agreement.setSpan(new ForegroundColorSpan(Color.parseColor("#3B73F6")), 6, agreement.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        SpannableString agreement = new SpannableString("登录即同意《用户协议》和《隐私政策》");
+        agreement.setSpan(new ForegroundColorSpan(Color.parseColor("#333333")), 0, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        agreement.setSpan(new ForegroundColorSpan(Color.parseColor("#3B73F6")), 5, 11, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        agreement.setSpan(new ForegroundColorSpan(Color.parseColor("#333333")), 11, 12, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        agreement.setSpan(new ForegroundColorSpan(Color.parseColor("#3B73F6")), 12, agreement.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         loginRead.setText(agreement);
 
         // 微信、QQ登录

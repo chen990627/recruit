@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".fragment.CompanyFragment">
 
     <!-- 顶部 -->
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/tabBar_company"
-            android:scaleType="fitXY"
-            android:src="@mipmap/common_bg" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginBottom="10dp">
+            android:layout_height="75dp"
+            android:background="@mipmap/common_bg"
+            android:paddingHorizontal="15dp"
+            app:layout_scrollFlags="scroll|enterAlways">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:paddingBottom="10dp"
                 android:text="@string/company"
                 android:textColor="@color/white"
                 android:textSize="22sp" />
@@ -35,18 +30,25 @@
             <!-- 搜索框 -->
             <EditText
                 style="@style/search_input"
-                android:layout_gravity="center"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
                 android:autofillHints="username"
                 tools:ignore="LabelFor" />
             <!-- 搜索框 end -->
         </LinearLayout>
-    </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
     <!-- 顶部 end -->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/company_recycler"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="5dp" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/company_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp" />
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

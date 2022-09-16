@@ -15,7 +15,6 @@
     <string name="mobile_input_hint">请输入手机号</string>
     <string name="smsCode_input_hint">请输入验证码</string>
     <string name="fetch_code">获取验证码</string>
-    <string name="privacy_agreement">已阅读并同意《用户协议》</string>
     <string name="login_or_register">登录 / 注册</string>
     <string name="login_wechat">微信登录</string>
     <string name="login_qq">QQ登录</string>

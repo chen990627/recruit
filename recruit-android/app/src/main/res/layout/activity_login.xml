@@ -94,7 +94,7 @@
         android:id="@+id/login_read"
         style="@style/radio_button"
         android:layout_width="wrap_content"
-        android:text="@string/privacy_agreement" />
+        android:textSize="11sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_btn"
