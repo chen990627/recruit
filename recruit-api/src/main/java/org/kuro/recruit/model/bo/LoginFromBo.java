@@ -21,4 +21,8 @@ public class LoginFromBo {
     @ApiModelProperty(value = "短信验证码")
     @NotBlank(message = "短信验证码不能为空！")
     private String code;
+
+    @ApiModelProperty(value = "设备号")
+    @NotBlank(message = "设备号不能为空！")
+    private String clientId;
 }

@@ -3,8 +3,18 @@
 <mapper namespace="org.kuro.recruit.mapper.UserMapper">
 
     <select id="selectUserByMobile" resultType="org.kuro.recruit.model.entity.User">
-        select *
+        select id,
+               mobile,
+               nickname,
+               avatar,
+               job_state,
+               self_describe,
+               `state`,
+               client_id,
+               create_time,
+               update_time
         from sys_user
+        where mobile = #{mobile}
     </select>
 
 </mapper>

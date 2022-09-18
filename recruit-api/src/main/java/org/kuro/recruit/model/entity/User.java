@@ -3,7 +3,9 @@ package org.kuro.recruit.model.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.houkunlin.system.dict.starter.json.DictText;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,6 +13,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "sys_user")
 public class User implements Serializable {
 
