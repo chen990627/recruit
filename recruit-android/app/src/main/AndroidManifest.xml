@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许访问wifi状态的权限 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <!-- usesCleartextTraffic: true  ->>> 允许明文请求 -->
     <application
         android:name=".base.BaseApp"
         android:allowBackup="false"
@@ -16,6 +17,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Recruit"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
         <!-- OPPO、VIVO 刘海屏适配 -->
