@@ -5,9 +5,13 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.kuro.recruit.config.ApiConfig;
+import org.kuro.recruit.model.entity.Result;
+import org.kuro.recruit.model.res.LoginSuccessRes;
 import org.kuro.recruit.ui.LoginActivity;
 import org.kuro.recruit.utils.LogUtil;
 import org.kuro.recruit.utils.SpUtil;

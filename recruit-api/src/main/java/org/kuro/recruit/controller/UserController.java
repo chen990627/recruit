@@ -10,9 +10,11 @@ import io.swagger.annotations.ApiOperation;
 import org.kuro.recruit.config.Constant;
 import org.kuro.recruit.model.bo.LoginFromBo;
 import org.kuro.recruit.model.bo.MobileBo;
+import org.kuro.recruit.model.entity.LoginLog;
 import org.kuro.recruit.model.entity.User;
 import org.kuro.recruit.model.result.Result;
 import org.kuro.recruit.model.result.ResultCode;
+import org.kuro.recruit.service.LoginLogService;
 import org.kuro.recruit.service.UserService;
 import org.kuro.recruit.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,9 @@ public class UserController {
     @Autowired
     private UserService __user_service;
 
+    @Autowired
+    private LoginLogService __login_log_service;
+
 
     @ApiOperation(value = "短信验证码", notes = "获取短信验证码")
     @PostMapping("/sms")
@@ -58,8 +63,12 @@ public class UserController {
         __redis.setnx60s(redisIpKey, ip);
 
         // 生成验证码，验证码保存5分钟
-        String randomCode = (int) ((Math.random() * 9 + 1) * 100000) + "";
-        return __sms_utils.sendSMS(mobile, randomCode, redisCodeKey);
+        // String randomCode = (int) ((Math.random() * 9 + 1) * 100000) + "";
+        // return __sms_utils.sendSMS(mobile, randomCode, redisCodeKey);
+
+        // todo 先将短信验证码写死，后续再修改
+        __redis.set(redisCodeKey, "666666", 60 * 5);
+        return Result.ok(ResultCode.MOBILE_CODE_SEND);
     }
 
 
@@ -69,7 +78,7 @@ public class UserController {
         String mobile = bo.getMobile();
         String code = bo.getCode();
         String redisKey = RedisKeyUtil.getSmsCodeKey(mobile);
-        String smsCode = __redis.get(redisKey);
+        String smsCode = "666666"; // __redis.get(redisKey);
 
         // 检验验证码是否匹配
         if (StrUtil.isBlank(smsCode) || !smsCode.equals(code)) {
@@ -84,8 +93,8 @@ public class UserController {
         }
 
         // 注册用户
+        Date nowDate = new Date();
         if (user == null) {
-            Date nowDate = new Date();
             user = new User(
                     IdUtil.getSnowflakeNextIdStr(),
                     mobile, NameUtil.getName(), AvatarUtil.getRandomImg(),
@@ -100,7 +109,15 @@ public class UserController {
         session.set(RedisKeyUtil.getSessionUserKey(), user);
         SaTokenInfo info = StpUtil.getTokenInfo();
 
-        // todo 记录登录日志...
+        // 记录登录日志
+        String ip = IPUtil.getIpAddress(request);
+        LoginLog loginLog = new LoginLog(
+                IdUtil.getSnowflakeNextIdStr(),
+                user.getId(), user.getMobile(), user.getNickname(),
+                AddressUtil.getCityInfo(ip), ip,
+                nowDate, nowDate, nowDate
+        );
+        __login_log_service.save(loginLog);
 
         Map<String, Object> result = new HashMap<>();
         result.put("token", info.getTokenValue());

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.kuro.recruit.R;
+import org.kuro.recruit.api.Callback;
 import org.kuro.recruit.config.MessageEnum;
 
 public class ToastMsg {

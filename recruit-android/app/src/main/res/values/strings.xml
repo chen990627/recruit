@@ -75,7 +75,6 @@
     <string name="time1">16:56</string>
 
     <!-- 个人中心页 -->
-    <string name="mine_introduce">用一句话介绍自己…</string>
     <string name="mine_curriculum_file">简历附件</string>
     <string name="mine_collect">我的收藏</string>
     <string name="mine_mailing">已投简历</string>

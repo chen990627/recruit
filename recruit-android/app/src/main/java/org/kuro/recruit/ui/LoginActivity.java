@@ -1,8 +1,12 @@
 package org.kuro.recruit.ui;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -13,14 +17,26 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
 import org.kuro.recruit.MainActivity;
 import org.kuro.recruit.R;
+import org.kuro.recruit.api.Callback;
+import org.kuro.recruit.api.Http;
 import org.kuro.recruit.base.BaseUIActivity;
+import org.kuro.recruit.config.ApiConfig;
 import org.kuro.recruit.config.MessageEnum;
+import org.kuro.recruit.model.entity.Result;
+import org.kuro.recruit.model.entity.User;
+import org.kuro.recruit.model.res.LoginRes;
+import org.kuro.recruit.model.res.LoginSuccessRes;
 import org.kuro.recruit.utils.CodeTimeCount;
+import org.kuro.recruit.utils.SpUtil;
 import org.kuro.recruit.utils.SystemUI;
 import org.kuro.recruit.view.message.ToastMsg;
 
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends BaseUIActivity {
@@ -71,16 +87,10 @@ public class LoginActivity extends BaseUIActivity {
 
 
     private void initData() {
+        // 获取短信验证码
         fetchCode.setOnClickListener(v -> {
-            // 校验手机号
             String mobileForm = inputMobile.getText().toString().trim();
-            if (valid(mobileForm, 1)) {
-                return;
-            }
-
-            // todo 获取短信验证码
-            CodeTimeCount timeCount = new CodeTimeCount(60000, 1000, fetchCode);
-            timeCount.start();
+            handleFetchCode(mobileForm);
         });
 
         loginBtn.setOnClickListener(v -> {
@@ -90,22 +100,9 @@ public class LoginActivity extends BaseUIActivity {
                 return;
             }
 
-            // 校验手机号
-//            String mobileForm = inputMobile.getText().toString().trim();
-//            if (valid(mobileForm, 1)) {
-//                return;
-//            }
-
-            // 校验短信验证码
-//            String smsForm = smsCode.getText().toString().trim();
-//            if (valid(smsForm, 2)) {
-//                return;
-//            }
-
-            // todo 发送api请求
-
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+            String mobileForm = inputMobile.getText().toString().trim();
+            String smsForm = smsCode.getText().toString().trim();
+            handleLogin(mobileForm, smsForm);
         });
     }
 
@@ -144,4 +141,99 @@ public class LoginActivity extends BaseUIActivity {
         return false;
     }
 
+
+    /**
+     * 发送HTTP请求，获取短信验证码
+     *
+     * @param mobile 手机号
+     */
+    private void handleFetchCode(String mobile) {
+        if (valid(mobile, 1)) {
+            return;
+        }
+
+        Context context = this;
+        HashMap<String, Object> param = new HashMap<>();
+        param.put("mobile", mobile);
+        Http.config(ApiConfig.SMS, param).post(this, new Callback() {
+            @Override
+            public void onSuccess(String res) {
+                runOnUiThread(() -> {
+                    Result result = new Gson().fromJson(res, Result.class);
+                    if (result.getStatus()) {
+                        CodeTimeCount timeCount = new CodeTimeCount(60000, 1000, fetchCode);
+                        timeCount.start();
+                        ToastMsg.success(context, result.getMessage());
+                    } else {
+                        ToastMsg.error(context, result.getMessage());
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+            }
+        });
+    }
+
+
+    /**
+     * 用户登录/注册
+     *
+     * @param mobile 手机号
+     * @param code   验证码
+     */
+    @SuppressLint("HardwareIds")
+    private void handleLogin(String mobile, String code) {
+        // 校验手机号
+        if (valid(mobile, 1)) {
+            return;
+        }
+
+        // 校验短信验证码
+        if (valid(code, 2)) {
+            return;
+        }
+
+        // 获取 androidId
+        String androidId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("mobile", mobile);
+        params.put("code", code);
+        params.put("clientId", androidId);
+
+        Http.config(ApiConfig.LOGIN, params).post(this, new Callback() {
+            @Override
+            public void onSuccess(String res) {
+                LoginRes result = new Gson().fromJson(res, LoginRes.class);
+                if (result.getStatus()) {
+                    User user = result.getData().getUser();
+                    String token = result.getData().getToken();
+                    loginSuccess(user, token);
+                }
+                showToastSync(result.getMessage());
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+            }
+        });
+    }
+
+
+    /**
+     * 登录成功回调
+     *
+     * @param user  用户数据
+     * @param token token
+     */
+    private void loginSuccess(User user, String token) {
+        SpUtil.getInstance().putString("token", token);
+        SpUtil.getInstance().putString("userId", user.getId());
+        SpUtil.getInstance().putString("nickname", user.getNickname());
+        SpUtil.getInstance().putString("avatar", user.getAvatar());
+        SpUtil.getInstance().putString("mobile", user.getMobile());
+        SpUtil.getInstance().putString("describe", user.getSelfDescribe());
+        navigateToWithFlag(MainActivity.class, this);
+    }
 }
