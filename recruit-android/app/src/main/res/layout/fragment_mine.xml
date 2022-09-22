@@ -45,11 +45,12 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                style="@style/circleStyle"
+            <org.kuro.recruit.view.avatar.Avatar
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:src="@mipmap/icon_wechat" />
+                app:image_url="@{user.avatar}"
+                app:isCircle="@{true}"
+                tools:src="@mipmap/icon_wechat" />
 
             <LinearLayout
                 android:layout_width="match_parent"

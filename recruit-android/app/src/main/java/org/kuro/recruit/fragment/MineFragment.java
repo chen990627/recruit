@@ -10,8 +10,7 @@ import androidx.annotation.NonNull;
 import org.kuro.recruit.R;
 import org.kuro.recruit.base.BaseFragment;
 import org.kuro.recruit.databinding.FragmentMineBinding;
-import org.kuro.recruit.model.entity.User;
-import org.kuro.recruit.utils.SpUtil;
+import org.kuro.recruit.manager.UserManage;
 
 public class MineFragment extends BaseFragment {
 
@@ -41,13 +40,6 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        String nickname = SpUtil.getInstance().getString("nickname", "");
-        String avatar = SpUtil.getInstance().getString("avatar", "");
-        String describe = SpUtil.getInstance().getString("describe", "");
-        User user = new User();
-        user.setAvatar(avatar);
-        user.setNickname(nickname);
-        user.setSelfDescribe(describe);
-        mineBinding.setUser(user);
+        mineBinding.setUser(UserManage.account());
     }
 }

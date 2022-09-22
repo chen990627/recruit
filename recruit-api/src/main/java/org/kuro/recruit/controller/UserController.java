@@ -3,6 +3,7 @@ package org.kuro.recruit.controller;
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.util.DesensitizedUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
 import io.swagger.annotations.Api;
@@ -96,8 +97,8 @@ public class UserController {
         Date nowDate = new Date();
         if (user == null) {
             user = new User(
-                    IdUtil.getSnowflakeNextIdStr(),
-                    mobile, NameUtil.getName(), AvatarUtil.getRandomImg(),
+                    IdUtil.getSnowflakeNextIdStr(), mobile,
+                    DesensitizedUtil.mobilePhone(mobile), AvatarUtil.getRandomImg(),
                     Constant.USER_JOB_STATE, Constant.USER_INTRO,
                     bo.getClientId(), 1, nowDate, nowDate
             );

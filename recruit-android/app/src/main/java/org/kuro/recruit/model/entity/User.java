@@ -33,6 +33,13 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(String mobile, String nickname, String avatar, String selfDescribe) {
+        this.mobile = mobile;
+        this.nickname = nickname;
+        this.avatar = avatar;
+        this.selfDescribe = selfDescribe;
+    }
+
     public String getId() {
         return id;
     }

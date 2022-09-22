@@ -3,7 +3,6 @@ package org.kuro.recruit.ui;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -19,7 +18,6 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.gson.Gson;
 
-import org.json.JSONObject;
 import org.kuro.recruit.MainActivity;
 import org.kuro.recruit.R;
 import org.kuro.recruit.api.Callback;
@@ -27,11 +25,12 @@ import org.kuro.recruit.api.Http;
 import org.kuro.recruit.base.BaseUIActivity;
 import org.kuro.recruit.config.ApiConfig;
 import org.kuro.recruit.config.MessageEnum;
+import org.kuro.recruit.manager.UserManage;
 import org.kuro.recruit.model.entity.Result;
 import org.kuro.recruit.model.entity.User;
 import org.kuro.recruit.model.res.LoginRes;
-import org.kuro.recruit.model.res.LoginSuccessRes;
 import org.kuro.recruit.utils.CodeTimeCount;
+import org.kuro.recruit.utils.LogUtil;
 import org.kuro.recruit.utils.SpUtil;
 import org.kuro.recruit.utils.SystemUI;
 import org.kuro.recruit.view.message.ToastMsg;
@@ -56,13 +55,23 @@ public class LoginActivity extends BaseUIActivity {
         setContentView(R.layout.activity_login);
         SystemUI.fixSystemUI(this, true);
 
+        checkLogin();
+
         initView();
         initData();
     }
 
 
-    private void initView() {
+    private void checkLogin() {
+        String token = SpUtil.getInstance().getString("token", "");
+        if (!TextUtils.isEmpty(token)) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
+    }
 
+
+    private void initView() {
         inputMobile = findViewById(R.id.input_mobile);
         smsCode = findViewById(R.id.sms_code);
         fetchCode = findViewById(R.id.fetch_code);
@@ -172,6 +181,7 @@ public class LoginActivity extends BaseUIActivity {
 
             @Override
             public void onFailure(Exception e) {
+                LogUtil.e(e.getMessage());
             }
         });
     }
@@ -202,6 +212,7 @@ public class LoginActivity extends BaseUIActivity {
         params.put("code", code);
         params.put("clientId", androidId);
 
+        Context context = this;
         Http.config(ApiConfig.LOGIN, params).post(this, new Callback() {
             @Override
             public void onSuccess(String res) {
@@ -209,31 +220,17 @@ public class LoginActivity extends BaseUIActivity {
                 if (result.getStatus()) {
                     User user = result.getData().getUser();
                     String token = result.getData().getToken();
-                    loginSuccess(user, token);
+                    UserManage.login(user, token);
+                    navigateToWithFlag(MainActivity.class, context);
                 }
                 showToastSync(result.getMessage());
             }
 
             @Override
             public void onFailure(Exception e) {
+                LogUtil.e(e.getMessage());
             }
         });
     }
 
-
-    /**
-     * 登录成功回调
-     *
-     * @param user  用户数据
-     * @param token token
-     */
-    private void loginSuccess(User user, String token) {
-        SpUtil.getInstance().putString("token", token);
-        SpUtil.getInstance().putString("userId", user.getId());
-        SpUtil.getInstance().putString("nickname", user.getNickname());
-        SpUtil.getInstance().putString("avatar", user.getAvatar());
-        SpUtil.getInstance().putString("mobile", user.getMobile());
-        SpUtil.getInstance().putString("describe", user.getSelfDescribe());
-        navigateToWithFlag(MainActivity.class, this);
-    }
 }
