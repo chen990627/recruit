@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许访问wifi状态的权限 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-    <!-- usesCleartextTraffic: true  ->>> 允许明文请求 -->
     <application
         android:name=".base.BaseApp"
         android:allowBackup="false"
@@ -37,9 +36,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ResumeActivity"
             android:exported="false" />
     </application>
 

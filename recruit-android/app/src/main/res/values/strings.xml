@@ -69,10 +69,8 @@
 
     <!--消息页-->
     <string name="message">消息</string>
-    <string name="system_notify">系统通知</string>
     <string name="user1">陈墨</string>
     <string name="msg1">兄弟，你女朋友和我女朋友是同一个人</string>
-    <string name="time1">16:56</string>
 
     <!-- 个人中心页 -->
     <string name="mine_curriculum_file">简历附件</string>
@@ -83,5 +81,7 @@
     <string name="mine_follow">关注公司</string>
     <string name="mine_answer">常见问答</string>
     <string name="mine_help">帮助与反馈</string>
+
+    <string name="resume">个人在线简历</string>
 
 </resources>

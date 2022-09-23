@@ -153,6 +153,7 @@
             <View style="@style/default_line" />
 
             <LinearLayout
+                android:id="@+id/row_resume"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">

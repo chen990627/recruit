@@ -15,4 +15,10 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:cursorVisible">true</item>
     </style>
+
+    <!-- 在线简历下划线 -->
+    <style name="resume_line" parent="default_line">
+        <item name="android:layout_marginHorizontal">15dp</item>
+        <item name="android:layout_marginVertical">20dp</item>
+    </style>
 </resources>

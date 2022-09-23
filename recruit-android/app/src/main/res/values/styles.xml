@@ -11,7 +11,7 @@
     <!-- ActionBar标题 -->
     <style name="action_bar_title">
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/blackText3</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">18sp</item>
     </style>
 
@@ -38,9 +38,11 @@
         <item name="android:textColor">@color/blackText3</item>
     </style>
 
-    <!--ShapeableImageView 圆形图片 -->
-    <style name="circleStyle">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
+    <!-- ActionBar返回图标 -->
+    <style name="action_bar_back">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:src">@drawable/icon_back</item>
     </style>
 </resources>
