@@ -69,8 +69,6 @@
 
     <!--消息页-->
     <string name="message">消息</string>
-    <string name="user1">陈墨</string>
-    <string name="msg1">兄弟，你女朋友和我女朋友是同一个人</string>
 
     <!-- 个人中心页 -->
     <string name="mine_curriculum_file">简历附件</string>

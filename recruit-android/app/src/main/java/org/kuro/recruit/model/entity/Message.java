@@ -43,10 +43,10 @@ public class Message implements Serializable {
     public static List<Message> list() {
         List<Message> list = new ArrayList<>();
 
-        list.add(new Message("微微智能科技有限公司", "请问还在考虑新的工作机会吗？", "14:27"));
-        list.add(new Message("微微智能科技有限公司", "请问还在考虑新的工作机会吗？", "14:27"));
-        list.add(new Message("微微智能科技有限公司", "请问还在考虑新的工作机会吗？", "14:27"));
-        list.add(new Message("微微智能科技有限公司", "请问还在考虑新的工作机会吗？", "14:27"));
+        list.add(new Message("微微智能科技有限公司", "兄弟，你女朋友和我女朋友是同一个人", "14:27"));
+        list.add(new Message("比特科技有限公司", "兄弟，你女朋友和我女朋友是同一个人", "14:27"));
+        list.add(new Message("千库科技有限公司", "兄弟，你女朋友和我女朋友是同一个人", "14:27"));
+        list.add(new Message("星铭科技有限公司", "兄弟，你女朋友和我女朋友是同一个人", "14:27"));
 
         return list;
     }

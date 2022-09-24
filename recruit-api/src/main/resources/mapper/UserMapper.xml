@@ -5,8 +5,10 @@
     <select id="selectUserByMobile" resultType="org.kuro.recruit.model.entity.User">
         select id,
                mobile,
-               nickname,
+               gender,
+               `name`,
                avatar,
+               birthday,
                job_state,
                self_describe,
                `state`,

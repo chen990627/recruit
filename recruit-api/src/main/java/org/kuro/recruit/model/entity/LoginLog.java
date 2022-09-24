@@ -8,13 +8,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_login_log")
-public class LoginLog {
+public class LoginLog implements Serializable {
 
     @Id
     @ApiModelProperty(value = "主键")
@@ -27,7 +28,7 @@ public class LoginLog {
     private String mobile;
 
     @ApiModelProperty(value = "昵称")
-    private String nickname;
+    private String name;
 
     @ApiModelProperty(value = "登录地点")
     private String location;

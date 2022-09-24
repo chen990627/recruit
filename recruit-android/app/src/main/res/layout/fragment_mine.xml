@@ -144,7 +144,7 @@
                     style="@style/mine_row_item"
                     android:layout_alignParentEnd="true"
                     android:drawableEnd="@drawable/icon_arrow_right"
-                    android:text="@string/mine_job_expect"
+                    android:text="@{user.jobState}"
                     android:textColor="@color/black_tag"
                     android:textSize="12sp"
                     tools:ignore="RelativeOverlap" />

@@ -11,18 +11,19 @@ import io.swagger.annotations.ApiOperation;
 import org.kuro.recruit.config.Constant;
 import org.kuro.recruit.model.bo.LoginFromBo;
 import org.kuro.recruit.model.bo.MobileBo;
+import org.kuro.recruit.model.bo.WorkHistBo;
 import org.kuro.recruit.model.entity.LoginLog;
 import org.kuro.recruit.model.entity.User;
+import org.kuro.recruit.model.entity.WorkHistory;
 import org.kuro.recruit.model.result.Result;
 import org.kuro.recruit.model.result.ResultCode;
 import org.kuro.recruit.service.LoginLogService;
 import org.kuro.recruit.service.UserService;
+import org.kuro.recruit.service.WorkHistoryService;
 import org.kuro.recruit.utils.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -46,6 +47,9 @@ public class UserController {
 
     @Autowired
     private LoginLogService __login_log_service;
+
+    @Autowired
+    private WorkHistoryService __work_history_service;
 
 
     @ApiOperation(value = "短信验证码", notes = "获取短信验证码")
@@ -97,10 +101,10 @@ public class UserController {
         Date nowDate = new Date();
         if (user == null) {
             user = new User(
-                    IdUtil.getSnowflakeNextIdStr(), mobile,
+                    IdUtil.getSnowflakeNextIdStr(), mobile, 1,
                     DesensitizedUtil.mobilePhone(mobile), AvatarUtil.getRandomImg(),
                     Constant.USER_JOB_STATE, Constant.USER_INTRO,
-                    bo.getClientId(), 1, nowDate, nowDate
+                    bo.getClientId(), 1, null, nowDate, nowDate
             );
             __user_service.registerUser(user);
         }
@@ -114,7 +118,7 @@ public class UserController {
         String ip = IPUtil.getIpAddress(request);
         LoginLog loginLog = new LoginLog(
                 IdUtil.getSnowflakeNextIdStr(),
-                user.getId(), user.getMobile(), user.getNickname(),
+                user.getId(), user.getMobile(), user.getName(),
                 AddressUtil.getCityInfo(ip), ip,
                 nowDate, nowDate, nowDate
         );
@@ -123,6 +127,8 @@ public class UserController {
         Map<String, Object> result = new HashMap<>();
         result.put("token", info.getTokenValue());
         result.put("user", user);
+
+        // todo 登录第三方IM，如腾讯IM...
 
         return Result.ok(ResultCode.LOGIN_SUCCESS).data(result);
     }
@@ -133,5 +139,28 @@ public class UserController {
     public Result logoutApi() {
         StpUtil.logout();
         return Result.ok(ResultCode.LOGOUT_SUCCESS);
+    }
+
+
+    @ApiOperation(value = "添加/修改工作经历", notes = "添加/修改工作经历，1添加，2修改")
+    @PostMapping("/work/save")
+    public Result saveWorkHistoryApi(@RequestBody @Valid WorkHistBo bo) {
+        WorkHistory history = new WorkHistory();
+        BeanUtils.copyProperties(bo, history);
+        if (bo.getType() == 1) {
+            __work_history_service.saveWorkHist(history);
+            return Result.ok(ResultCode.ADD_SUCCESS);
+        } else {
+            __work_history_service.updateWorkHist(history);
+            return Result.ok(ResultCode.UPDATE_SUCCESS);
+        }
+    }
+
+
+    @ApiOperation(value = "删除工作经历", notes = "删除工作经历")
+    @PostMapping("/work/remove/{id}")
+    public Result removeWorkHistoryApi(@PathVariable("id") String id) {
+        __work_history_service.removeWorkHist(id);
+        return Result.ok(ResultCode.DELETE_SUCCESS);
     }
 }

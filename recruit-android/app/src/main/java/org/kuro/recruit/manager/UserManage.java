@@ -10,8 +10,9 @@ public class UserManage {
         String avatar = SpUtil.getInstance().getString("avatar", "");
         String describe = SpUtil.getInstance().getString("describe", "");
         String mobile = SpUtil.getInstance().getString("mobile", "");
+        String jobState = SpUtil.getInstance().getString("jobState", "");
 
-        return new User(mobile, nickname, avatar, describe);
+        return new User(mobile, nickname, avatar, jobState, describe);
     }
 
 
@@ -27,6 +28,7 @@ public class UserManage {
         SpUtil.getInstance().putString("avatar", user.getAvatar());
         SpUtil.getInstance().putString("mobile", user.getMobile());
         SpUtil.getInstance().putString("describe", user.getSelfDescribe());
+        SpUtil.getInstance().putString("jobState", user.getJobState());
     }
 
 
@@ -37,5 +39,6 @@ public class UserManage {
         SpUtil.getInstance().deleteKey("avatar");
         SpUtil.getInstance().deleteKey("mobile");
         SpUtil.getInstance().deleteKey("describe");
+        SpUtil.getInstance().deleteKey("jobState");
     }
 }

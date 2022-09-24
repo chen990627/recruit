@@ -25,8 +25,12 @@ public class User implements Serializable {
     @ApiModelProperty(value = "手机号")
     private String mobile;
 
+    @DictText("gender")
+    @ApiModelProperty(value = "1男，2女")
+    private Integer gender;
+
     @ApiModelProperty(value = "昵称")
-    private String nickname;
+    private String name;
 
     @ApiModelProperty(value = "头像")
     private String avatar;
@@ -44,6 +48,10 @@ public class User implements Serializable {
     @DictText("user_state")
     @ApiModelProperty(value = "1正常，2冻结")
     private Integer state;
+
+    @ApiModelProperty(value = "生日")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
+    private Date birthday;
 
     @ApiModelProperty(value = "创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
