@@ -9,14 +9,17 @@ import cn.hutool.core.util.StrUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.kuro.recruit.config.Constant;
+import org.kuro.recruit.model.bo.EduBo;
 import org.kuro.recruit.model.bo.LoginFromBo;
 import org.kuro.recruit.model.bo.MobileBo;
 import org.kuro.recruit.model.bo.WorkHistBo;
+import org.kuro.recruit.model.entity.EduExperience;
 import org.kuro.recruit.model.entity.LoginLog;
 import org.kuro.recruit.model.entity.User;
 import org.kuro.recruit.model.entity.WorkHistory;
 import org.kuro.recruit.model.result.Result;
 import org.kuro.recruit.model.result.ResultCode;
+import org.kuro.recruit.service.EduExperienceService;
 import org.kuro.recruit.service.LoginLogService;
 import org.kuro.recruit.service.UserService;
 import org.kuro.recruit.service.WorkHistoryService;
@@ -50,6 +53,9 @@ public class UserController {
 
     @Autowired
     private WorkHistoryService __work_history_service;
+
+    @Autowired
+    private EduExperienceService __edu_experience_service;
 
 
     @ApiOperation(value = "短信验证码", notes = "获取短信验证码")
@@ -162,5 +168,39 @@ public class UserController {
     public Result removeWorkHistoryApi(@PathVariable("id") String id) {
         __work_history_service.removeWorkHist(id);
         return Result.ok(ResultCode.DELETE_SUCCESS);
+    }
+
+
+    @ApiOperation(value = "添加/修改教育经历", notes = "添加/修改教育经历，1添加，2修改")
+    @PostMapping("/edu/save")
+    public Result saveEduApi(@RequestBody @Valid EduBo bo) {
+        EduExperience experience = new EduExperience();
+        BeanUtils.copyProperties(bo, experience);
+        if (bo.getType() == 1) {
+            __edu_experience_service.saveEduData(experience);
+            return Result.ok(ResultCode.ADD_SUCCESS);
+        } else {
+            __edu_experience_service.updateEduData(experience);
+            return Result.ok(ResultCode.UPDATE_SUCCESS);
+        }
+    }
+
+
+    @ApiOperation(value = "查询工作/教育经历", notes = "根据ID查询工作/教育经历，type:1教育经历，2工作经历")
+    @PostMapping("/userDataItem/{id}/{type}")
+    public Result fetchEduApi(@PathVariable("id") String id, @PathVariable("type") Integer type) {
+        switch (type) {
+            case 1:
+                EduExperience edu = __edu_experience_service.queryEduById(id);
+                return Result.ok().data(edu);
+            case 2:
+                WorkHistory history = __work_history_service.queryById(id);
+                return Result.ok().data(history);
+//            case 3:
+//                JobExpect expect = jobExpectService.queryById(id);
+//                return Result.ok().data(expect);
+            default:
+                return Result.error(ResultCode.PARAM_WRONGFUL);
+        }
     }
 }
