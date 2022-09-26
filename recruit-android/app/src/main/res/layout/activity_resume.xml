@@ -239,6 +239,7 @@
         <View style="@style/resume_line" />
 
         <LinearLayout
+            android:id="@+id/edu_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"

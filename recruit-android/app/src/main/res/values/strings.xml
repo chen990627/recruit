@@ -81,5 +81,15 @@
     <string name="mine_help">帮助与反馈</string>
 
     <string name="resume">个人在线简历</string>
+    <string name="save">保存</string>
+    <string name="edu_exp">教育经历</string>
+    <string name="college">学校</string>
+    <string name="edu">学历</string>
+    <string name="major">专业</string>
+    <string name="time_quantum">时间段</string>
+    <string name="college_hint">请输入学校名称</string>
+    <string name="edu_hint">请选择学历</string>
+    <string name="major_hint">请填写专业名称</string>
+    <string name="time_quantum_hint">请选择就读时间段</string>
 
 </resources>

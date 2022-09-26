@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.EduActivity">
+
+    <!-- 顶部标题栏 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:background="@mipmap/common_bg"
+        android:paddingTop="26dp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/resume_back"
+            style="@style/action_bar_back"
+            android:contentDescription="@string/resume" />
+
+        <TextView
+            style="@style/action_bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/edu_exp" />
+
+        <TextView
+            style="@style/action_bar_right"
+            android:text="@string/save"
+            tools:ignore="RelativeOverlap,RtlSymmetry" />
+    </RelativeLayout>
+    <!-- 顶部标题栏 end -->
+
+    <LinearLayout style="@style/edu_linear_layout">
+
+        <TextView
+            style="@style/edu_input_label"
+            android:text="@string/college" />
+
+        <EditText
+            style="@style/edu_input"
+            android:autofillHints=""
+            android:hint="@string/college_hint" />
+
+        <View style="@style/default_line" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/edu_linear_layout">
+
+        <TextView
+            style="@style/edu_input_label"
+            android:text="@string/edu" />
+
+        <EditText
+            style="@style/edu_input"
+            android:autofillHints=""
+            android:drawableEnd="@drawable/icon_arrow_right"
+            android:hint="@string/edu_hint" />
+
+        <View style="@style/default_line" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/edu_linear_layout">
+
+        <TextView
+            style="@style/edu_input_label"
+            android:text="@string/major" />
+
+        <EditText
+            style="@style/edu_input"
+            android:autofillHints=""
+            android:hint="@string/major_hint" />
+
+        <View style="@style/default_line" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/edu_linear_layout">
+
+        <TextView
+            style="@style/edu_input_label"
+            android:text="@string/time_quantum" />
+
+        <EditText
+            style="@style/edu_input"
+            android:autofillHints=""
+            android:drawableEnd="@drawable/icon_arrow_right"
+            android:hint="@string/time_quantum_hint" />
+
+        <View style="@style/default_line" />
+    </LinearLayout>
+</LinearLayout>

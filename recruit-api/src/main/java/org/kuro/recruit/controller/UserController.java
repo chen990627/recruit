@@ -187,7 +187,7 @@ public class UserController {
 
 
     @ApiOperation(value = "查询工作/教育经历", notes = "根据ID查询工作/教育经历，type:1教育经历，2工作经历")
-    @PostMapping("/userDataItem/{id}/{type}")
+    @PostMapping("/userInfo/{id}/{type}")
     public Result fetchEduApi(@PathVariable("id") String id, @PathVariable("type") Integer type) {
         switch (type) {
             case 1:

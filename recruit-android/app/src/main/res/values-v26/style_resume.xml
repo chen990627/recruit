@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 教育经历页面表单项的 LinearLayout -->
+    <style name="edu_linear_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- 教育经历页面表单项的 label -->
+    <style name="edu_input_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- 教育经历页面表单项的 input -->
+    <style name="edu_input" parent="input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:inputType">text</item>
+    </style>
+</resources>
