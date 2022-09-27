@@ -2,23 +2,28 @@ package org.kuro.recruit.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+
+import androidx.databinding.DataBindingUtil;
 
 import org.kuro.recruit.R;
 import org.kuro.recruit.base.BaseUIActivity;
+import org.kuro.recruit.databinding.ActivityResumeBinding;
 
 public class ResumeActivity extends BaseUIActivity {
+
+    private ActivityResumeBinding resumeBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resume);
+        resumeBinding = DataBindingUtil.setContentView(this, R.layout.activity_resume);
 
-        ImageView back = findViewById(R.id.resume_back);
-        back.setOnClickListener(v -> finish());
+        initView();
+    }
 
-        LinearLayout eduRow = findViewById(R.id.edu_row);
-        eduRow.setOnClickListener(v -> startActivity(new Intent(this, EduActivity.class)));
+
+    private void initView() {
+        resumeBinding.resumeBack.setOnClickListener(v -> finish());
+        resumeBinding.eduRow.setOnClickListener(v -> startActivity(new Intent(this, EduActivity.class)));
     }
 }

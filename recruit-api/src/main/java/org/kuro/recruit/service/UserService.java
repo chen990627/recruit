@@ -19,4 +19,12 @@ public interface UserService {
      * @param user 用户对象
      */
     void registerUser(User user);
+
+
+    /**
+     * 根据ID查询用户
+     *
+     * @param id ID
+     */
+    User queryById(String id);
 }

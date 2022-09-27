@@ -23,4 +23,10 @@ public class UserServiceImpl implements UserService {
     public void registerUser(User user) {
         __user_mapper.insertSelective(user);
     }
+
+
+    @Override
+    public User queryById(String id) {
+        return __user_mapper.selectByPrimaryKey(id);
+    }
 }

@@ -19,6 +19,7 @@ import org.kuro.recruit.model.entity.User;
 import org.kuro.recruit.model.entity.WorkHistory;
 import org.kuro.recruit.model.result.Result;
 import org.kuro.recruit.model.result.ResultCode;
+import org.kuro.recruit.model.vo.AccountVo;
 import org.kuro.recruit.service.EduExperienceService;
 import org.kuro.recruit.service.LoginLogService;
 import org.kuro.recruit.service.UserService;
@@ -32,6 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -202,5 +204,23 @@ public class UserController {
             default:
                 return Result.error(ResultCode.PARAM_WRONGFUL);
         }
+    }
+
+
+    @ApiOperation(value = "简历信息", notes = "个人简历信息")
+    @PostMapping("/account")
+    public Result accountApi() {
+        String id = StpUtil.getLoginIdAsString();
+        User user = __user_service.queryById(id);
+
+        AccountVo vo = new AccountVo();
+        BeanUtils.copyProperties(user, vo);
+
+        List<EduExperience> eduList = __edu_experience_service.queryEduListByUser(id);
+        List<WorkHistory> historyList = __work_history_service.queryList(id);
+        vo.setEduList(eduList);
+        vo.setWorkList(historyList);
+
+        return Result.ok().data(vo);
     }
 }

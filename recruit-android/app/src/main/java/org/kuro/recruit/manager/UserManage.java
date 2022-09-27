@@ -24,7 +24,7 @@ public class UserManage {
     public static void login(User user, String token) {
         SpUtil.getInstance().putString("token", token);
         SpUtil.getInstance().putString("userId", user.getId());
-        SpUtil.getInstance().putString("nickname", user.getNickname());
+        SpUtil.getInstance().putString("nickname", user.getName());
         SpUtil.getInstance().putString("avatar", user.getAvatar());
         SpUtil.getInstance().putString("mobile", user.getMobile());
         SpUtil.getInstance().putString("describe", user.getSelfDescribe());

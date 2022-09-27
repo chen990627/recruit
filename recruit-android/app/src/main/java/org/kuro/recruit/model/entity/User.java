@@ -1,9 +1,6 @@
 package org.kuro.recruit.model.entity;
 
-import androidx.annotation.NonNull;
-
 import java.io.Serializable;
-import java.util.Date;
 
 public class User implements Serializable {
 
@@ -11,7 +8,11 @@ public class User implements Serializable {
 
     private String mobile;
 
-    private String nickname;
+    private Integer gender;
+
+    private String genderText;
+
+    private String name;
 
     private String avatar;
 
@@ -26,16 +27,18 @@ public class User implements Serializable {
 
     private String stateText;
 
-    private Date createTime;
+    private String birthday;
 
-    private Date updateTime;
+    private String createTime;
+
+    private String updateTime;
 
     public User() {
     }
 
-    public User(String mobile, String nickname, String avatar, String jobState, String selfDescribe) {
+    public User(String mobile, String name, String avatar, String jobState, String selfDescribe) {
         this.mobile = mobile;
-        this.nickname = nickname;
+        this.name = name;
         this.avatar = avatar;
         this.jobState = jobState;
         this.selfDescribe = selfDescribe;
@@ -57,12 +60,28 @@ public class User implements Serializable {
         this.mobile = mobile;
     }
 
-    public String getNickname() {
-        return nickname;
+    public Integer getGender() {
+        return gender;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public String getGenderText() {
+        return genderText;
+    }
+
+    public void setGenderText(String genderText) {
+        this.genderText = genderText;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAvatar() {
@@ -113,37 +132,27 @@ public class User implements Serializable {
         this.stateText = stateText;
     }
 
-    public Date getCreateTime() {
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", jobState='" + jobState + '\'' +
-                ", selfDescribe='" + selfDescribe + '\'' +
-                ", clientId='" + clientId + '\'' +
-                ", state=" + state +
-                ", stateText='" + stateText + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
     }
 }

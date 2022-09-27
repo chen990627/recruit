@@ -1,54 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.CompanyFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 顶部 -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <data>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="@mipmap/common_bg"
-            android:paddingHorizontal="15dp"
-            app:layout_scrollFlags="scroll|enterAlways">
+    </data>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="bottom"
-                android:paddingBottom="10dp"
-                android:text="@string/company"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
-
-            <!-- 搜索框 -->
-            <EditText
-                style="@style/search_input"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="5dp"
-                android:autofillHints="username"
-                tools:ignore="LabelFor" />
-            <!-- 搜索框 end -->
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-    <!-- 顶部 end -->
-
-    <androidx.core.widget.NestedScrollView
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        tools:context=".fragment.CompanyFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/company_recycler"
+        <!-- 顶部 -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:background="@mipmap/common_bg"
+                android:paddingHorizontal="15dp"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:paddingBottom="10dp"
+                    android:text="@string/company"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+
+                <!-- 搜索框 -->
+                <EditText
+                    style="@style/search_input"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="5dp"
+                    android:autofillHints="username"
+                    tools:ignore="LabelFor" />
+                <!-- 搜索框 end -->
+            </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <!-- 顶部 end -->
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="5dp" />
-    </androidx.core.widget.NestedScrollView>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/company_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp" />
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

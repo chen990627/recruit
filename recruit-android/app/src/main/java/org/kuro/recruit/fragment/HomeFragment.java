@@ -1,22 +1,22 @@
 package org.kuro.recruit.fragment;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.appbar.AppBarLayout;
 
 import org.kuro.recruit.R;
 import org.kuro.recruit.base.BaseFragment;
+import org.kuro.recruit.databinding.FragmentHomeBinding;
 
 
 public class HomeFragment extends BaseFragment {
 
-    private AppBarLayout appBar;
-    private Toolbar homeSearch;
-    private RecyclerView recycler;
+    private FragmentHomeBinding homeBinding;
 
     public HomeFragment() {
     }
@@ -26,30 +26,28 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    protected int initLayout() {
-        return R.layout.fragment_home;
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        homeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        return homeBinding.getRoot();
     }
+
 
     @Override
     protected void initView() {
-        appBar = mRootView.findViewById(R.id.app_bar);
-        homeSearch = mRootView.findViewById(R.id.home_search);
-        recycler = mRootView.findViewById(R.id.home_recycler);
+        homeBinding.appBar.addOnOffsetChangedListener((appBarLayout, i) -> {
+            if (Math.abs(i) < appBarLayout.getTotalScrollRange()) {
+                homeBinding.homeSearch.setVisibility(View.GONE);
+            } else if (Math.abs(i) >= appBarLayout.getTotalScrollRange()) {
+                homeBinding.homeSearch.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override
     protected void initData() {
-        appBar.addOnOffsetChangedListener((appBarLayout, i) -> {
-            if (Math.abs(i) < appBarLayout.getTotalScrollRange()) {
-                homeSearch.setVisibility(View.GONE);
-            } else if (Math.abs(i) >= appBarLayout.getTotalScrollRange()) {
-                homeSearch.setVisibility(View.VISIBLE);
-            }
-        });
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recycler.setLayoutManager(layoutManager);
+        homeBinding.homeRecycler.setLayoutManager(layoutManager);
     }
 
 }

@@ -1,120 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:overScrollMode="never"
-    android:scrollbars="none"
-    tools:context=".ui.ResumeActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!-- 顶部标题栏 -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="74dp"
-            android:background="@mipmap/common_bg"
-            android:paddingTop="26dp">
-
-            <ImageView
-                android:id="@+id/resume_back"
-                style="@style/action_bar_back"
-                android:contentDescription="@string/resume" />
-
-            <TextView
-                style="@style/action_bar_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/resume" />
-        </RelativeLayout>
-        <!-- 顶部标题栏 end -->
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        tools:context=".ui.ResumeActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <!-- 顶部标题栏 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:background="@mipmap/common_bg"
+                android:paddingTop="26dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawablePadding="8dp"
-                    android:text="云天河"
-                    android:textColor="@color/blackText3"
-                    android:textSize="20sp"
-                    app:drawableEndCompat="@drawable/icon_edit_black" />
+                <ImageView
+                    android:id="@+id/resume_back"
+                    style="@style/action_bar_back"
+                    android:contentDescription="@string/resume" />
 
                 <TextView
+                    style="@style/action_bar_title"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="2年工作经验 · 24岁 · 本科"
-                    android:textColor="@color/black_tag"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@mipmap/icon_wechat" />
-        </LinearLayout>
-
-        <View style="@style/resume_line" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="个人优势"
-                android:textColor="@color/blackText3"
-                android:textSize="15sp"
-                app:drawableEndCompat="@drawable/icon_edit_black" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="有什么个人优势呢？用一两句话表述吧~"
-                android:textColor="@color/black_tag"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <View style="@style/resume_line" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="求职期望"
-                android:textColor="@color/blackText3"
-                android:textSize="15sp"
-                app:drawableEndCompat="@drawable/icon_edit_black" />
+                    android:layout_height="match_parent"
+                    android:text="@string/resume" />
+            </RelativeLayout>
+            <!-- 顶部标题栏 end -->
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -123,174 +53,251 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="C++服务器开发 10~12K"
-                        android:textColor="@color/textColor"
-                        android:textSize="13sp" />
+                        android:drawablePadding="8dp"
+                        android:text="云天河"
+                        android:textColor="@color/blackText3"
+                        android:textSize="20sp"
+                        app:drawableEndCompat="@drawable/icon_edit_black" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="北京   互联网、移动互联网"
+                        android:layout_marginTop="3dp"
+                        android:text="2年工作经验 · 24岁 · 本科"
                         android:textColor="@color/black_tag"
                         android:textSize="12sp" />
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/icon_arrow_right" />
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/icon_wechat" />
             </LinearLayout>
-        </LinearLayout>
 
-        <View style="@style/resume_line" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="工作经历"
-                android:textColor="@color/blackText3"
-                android:textSize="15sp"
-                app:drawableEndCompat="@drawable/icon_edit_black" />
+            <View style="@style/resume_line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
                 android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="星铭科技技术有限公司"
-                        android:textColor="@color/blackText3"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="8dp"
-                        android:text="2020.11~至今"
-                        android:textColor="@color/textColor"
-                        android:textSize="12sp"
-                        app:drawableEndCompat="@drawable/icon_arrow_right" />
-                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="设计师\n1、你做的什么工作呀！描述一下工作内容吧~\n2、工作内容记得要写哦，增加就业几率。"
-                    android:textColor="@color/gray_tag"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="星铭科技技术有限公司"
-                        android:textColor="@color/blackText3"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="8dp"
-                        android:text="2020.11~至今"
-                        android:textColor="@color/textColor"
-                        android:textSize="12sp"
-                        app:drawableEndCompat="@drawable/icon_arrow_right" />
-                </LinearLayout>
+                    android:layout_marginBottom="10dp"
+                    android:text="个人优势"
+                    android:textColor="@color/blackText3"
+                    android:textSize="15sp"
+                    app:drawableEndCompat="@drawable/icon_edit_black" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="设计师\n1、你做的什么工作呀！描述一下工作内容吧~\n2、工作内容记得要写哦，增加就业几率。"
-                    android:textColor="@color/gray_tag"
+                    android:text="有什么个人优势呢？用一两句话表述吧~"
+                    android:textColor="@color/black_tag"
                     android:textSize="12sp" />
             </LinearLayout>
-        </LinearLayout>
 
-        <View style="@style/resume_line" />
-
-        <LinearLayout
-            android:id="@+id/edu_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="教育经历"
-                android:textColor="@color/blackText3"
-                android:textSize="15sp"
-                app:drawableEndCompat="@drawable/icon_edit_black" />
+            <View style="@style/resume_line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="求职期望"
+                    android:textColor="@color/blackText3"
+                    android:textSize="15sp"
+                    app:drawableEndCompat="@drawable/icon_edit_black" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="C++服务器开发 10~12K"
+                            android:textColor="@color/textColor"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="北京   互联网、移动互联网"
+                            android:textColor="@color/black_tag"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_arrow_right" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View style="@style/resume_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginBottom="10dp"
+                    android:text="工作经历"
+                    android:textColor="@color/blackText3"
+                    android:textSize="15sp"
+                    app:drawableEndCompat="@drawable/icon_edit_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="广西师范大学王城校区"
-                        android:textColor="@color/blackText3"
-                        android:textSize="13sp" />
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="星铭科技技术有限公司"
+                            android:textColor="@color/blackText3"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:text="2020.11~至今"
+                            android:textColor="@color/textColor"
+                            android:textSize="12sp"
+                            app:drawableEndCompat="@drawable/icon_arrow_right" />
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="本科 酒店管理"
-                        android:textColor="@color/black_tag"
+                        android:text="设计师\n1、你做的什么工作呀！描述一下工作内容吧~\n2、工作内容记得要写哦，增加就业几率。"
+                        android:textColor="@color/gray_tag"
                         android:textSize="12sp" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="星铭科技技术有限公司"
+                            android:textColor="@color/blackText3"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="8dp"
+                            android:text="2020.11~至今"
+                            android:textColor="@color/textColor"
+                            android:textSize="12sp"
+                            app:drawableEndCompat="@drawable/icon_arrow_right" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="设计师\n1、你做的什么工作呀！描述一下工作内容吧~\n2、工作内容记得要写哦，增加就业几率。"
+                        android:textColor="@color/gray_tag"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View style="@style/resume_line" />
+
+            <LinearLayout
+                android:id="@+id/edu_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:orientation="vertical">
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:drawablePadding="8dp"
-                    android:gravity="center"
-                    android:text="2019-2023"
-                    android:textColor="@color/textColor"
-                    android:textSize="12sp"
-                    app:drawableEndCompat="@drawable/icon_arrow_right" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="教育经历"
+                    android:textColor="@color/blackText3"
+                    android:textSize="15sp"
+                    app:drawableEndCompat="@drawable/icon_edit_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="广西师范大学王城校区"
+                            android:textColor="@color/blackText3"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="本科 酒店管理"
+                            android:textColor="@color/black_tag"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:text="2019-2023"
+                        android:textColor="@color/textColor"
+                        android:textSize="12sp"
+                        app:drawableEndCompat="@drawable/icon_arrow_right" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
+</layout>
