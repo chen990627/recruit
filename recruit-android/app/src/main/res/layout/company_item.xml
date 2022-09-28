@@ -30,7 +30,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blackText3"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:text="公司名称" />
 
             <TextView
                 android:id="@+id/company_intro"
@@ -40,7 +41,8 @@
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/blackText3"
                 android:textSize="10sp"
-                tools:ignore="SmallSp" />
+                tools:ignore="SmallSp"
+                tools:text="北京 | 移动互联网 | 500~1000人" />
 
             <TextView
                 android:id="@+id/company_tag"
@@ -51,7 +53,8 @@
                 android:paddingVertical="3dp"
                 android:textColor="@color/blackText3"
                 android:textSize="10sp"
-                tools:ignore="SmallSp" />
+                tools:ignore="SmallSp"
+                tools:text="五险一金" />
 
             <View
                 style="@style/default_line"
@@ -63,7 +66,8 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/blackText3"
                 android:textSize="12sp"
-                app:drawableEndCompat="@drawable/icon_arrow_right" />
+                app:drawableEndCompat="@drawable/icon_arrow_right"
+                tools:text="热招：Web前端开发 等72个岗位" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

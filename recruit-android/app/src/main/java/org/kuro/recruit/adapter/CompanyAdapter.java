@@ -17,8 +17,8 @@ import java.util.List;
 
 public class CompanyAdapter extends RecyclerView.Adapter<CompanyAdapter.ViewHolder> {
 
-    private List<Company> mList;
-    private Context mContext;
+    private final List<Company> mList;
+    private final Context mContext;
 
     public CompanyAdapter(Context context, List<Company> list) {
         this.mList = list;

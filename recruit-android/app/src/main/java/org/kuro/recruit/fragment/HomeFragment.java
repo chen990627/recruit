@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.kuro.recruit.R;
+import org.kuro.recruit.adapter.RecruitAdapter;
 import org.kuro.recruit.base.BaseFragment;
 import org.kuro.recruit.databinding.FragmentHomeBinding;
 
@@ -48,6 +49,7 @@ public class HomeFragment extends BaseFragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         homeBinding.homeRecycler.setLayoutManager(layoutManager);
+        homeBinding.homeRecycler.setAdapter(new RecruitAdapter(requireActivity()));
     }
 
 }
