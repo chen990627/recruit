@@ -1,5 +1,6 @@
 package org.kuro.recruit;
 
+import cn.hutool.core.util.IdUtil;
 import com.houkunlin.system.dict.starter.SystemDictScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

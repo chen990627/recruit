@@ -44,7 +44,12 @@
     <string name="mine_answer">常见问答</string>
     <string name="mine_help">帮助与反馈</string>
 
+    <!-- 简历 -->
     <string name="resume">个人在线简历</string>
+    <string name="personal_advantage">个人优势</string>
+    <string name="job_expectations">求职期望</string>
+    <string name="work_experience">工作经历</string>
+    <string name="education_experience">教育经历</string>
     <string name="save">保存</string>
     <string name="edu_exp">教育经历</string>
     <string name="college">学校</string>
